@@ -12,7 +12,6 @@ gulp.task('serve', function () {
   }, function () {
     browserSync({
       proxy: "localhost:9000",
-      open: false,
       /* Hide the notification. It gets annoying */
       notify: {
         styles: ['opacity: 0', 'position: absolute']
@@ -21,7 +20,7 @@ gulp.task('serve', function () {
     /**
      * Watch for scss changes, tell BrowserSync to refresh main.css
      */
-    gulp.watch(["*.css", "*.sass", "*.scss", "*.less"], function () {
+    gulp.watch(["*.css", "*.sass", "**/*.scss", "*.less"], function () {
       reload("main.css", {stream: true});
     });
     /**
